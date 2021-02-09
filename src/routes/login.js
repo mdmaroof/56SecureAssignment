@@ -34,7 +34,6 @@ class Login extends Component {
     }
     sendData = async () => {
         const data = { email: this.state.email, password: this.state.password }
-        // await this.props.sendData(data)
         const find = this.props.users.find(x => x.email === data.email && x.password === data.password)
 
         const token = await jwt.sign(JSON.parse(JSON.stringify(find)), "SECRET_KEY", {
