@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,423;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,423;1,500;1,600;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+$primaryColor:#2b2a2a;
+$secondaryColor:#4e4eff;
+$blackColor:#000000;
+$whiteColor:#ffffff;
+$blocksPaddig:20px 50px;
+$mainText: 'Open Sans', sans-serif;
+$titleFont:'Josefin Sans', sans-serif;
+
+a {
+    text-decoration: none;
+}
+
+
+*, *:before, *:after
+{
+	box-sizing: border-box;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+
+body,div {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+body{
+    overflow-x: hidden;
+    background-color: $whiteColor;
+    color: $primaryColor;
+    font-family: $mainText;
+    font-weight: 400;
+    max-height: 100vh;
+}
+
+.loginPage{
+    background: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    .box{
+        background-color: $whiteColor;
+        padding: 20px 50px;
+        border: 2px solid $primaryColor;
+        width: 500px;
+    .formLogin{
+        display: flex;
+        flex-direction: column;
+            input{
+                width:100%;
+                font-size: 16px;
+                padding: 5px 10px;
+                margin: 10px 0px;
+            }
+        }
+    }
+}
+
+.header{
+    background-color: $secondaryColor;
+    color: $whiteColor;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px 50px;
+    h2{
+        flex:1;
+    }
+    h5{
+        flex:1;
+        display: flex;
+        justify-content: flex-end;
+
+    }
+}
+#mainContent{
+    display: flex;
+    .sidebar{
+        position: relative;
+        z-index:1;
+        border-top: 2px solid $primaryColor;
+        border-right: 2px solid $primaryColor;
+        background-color: $secondaryColor;
+        color: $whiteColor;
+        max-width:250px;
+        min-width: 250px;
+        display: flex;
+        padding: 10px 20px;
+        flex-flow: column;
+        height: calc(100vh - 80px);
+        .heading{
+            font-size: 25px;
+            border-bottom:2px solid $whiteColor ;
+        }
+        ul{
+            padding: 0px 10px;
+            list-style-type: none;
+        }
+        li{
+            margin-top: 20px;
+        }
+        li a{
+            color: #ffffff;
+        }
+        li a:hover{
+            color: $primaryColor;
+        }
+        li .is-active{
+            font-weight: 600;
+            text-decoration: underline;
+        }
+    }
+    .content{
+        border-top: 2px solid $primaryColor;
+        background-color: #f7f7f8;
+        width: 100%;
+        height: calc(100vh - 80px);
+        .toast{
+            position: absolute;
+            bottom: 20px;
+            z-index: 9;
+            background: #000;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            margin: 0px auto;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            animation-name: bottomTop;
+            animation-duration: 1s;
+        }
+        .contentDashboard{
+            position: absolute;
+            top:80px;
+            width: calc(100% - 250px);
+            height: calc(100vh - 80px); 
+            z-index:1;
+            padding: 10px 50px;
+            display: flex;
+            flex-flow: column;
+            .headingtop{
+                display: flex;
+                align-items: center;
+                h2{
+                    flex:2;
+                }
+                .flex2{
+                    flex:1;
+                    display: flex;
+                    justify-content: flex-end;
+                    .buttonAdd{
+                        background-color: $secondaryColor;
+                        color: $whiteColor;
+                        cursor: pointer;
+                        padding: 10px 20px;
+                        &:hover{
+                            background-color: lightblue;
+                            color: $primaryColor;
+                        }
+                     
+                    }
+                }
+             
+            }
+            .boxOutline{
+                display: inline-flex;
+                flex-wrap: wrap;              
+                flex-flow: row;
+                justify-content: center;
+                align-items: center;
+                gap: 40px;
+                height: 200px;
+                .boxDashboard{
+                    width: 100%;
+                    background-color: $whiteColor;
+                    border: 2px solid #dfdfdf;
+                    padding: 15px;
+                    span{
+                        text-decoration: none;
+                        float: right;
+                    }
+                    h3{
+                        margin: 0;
+                        display: flex;
+                        justify-content: flex-end;
+                    }
+                }
+            }
+
+            span{
+                color: $blackColor;
+                text-decoration: underline;
+            }
+        }
+        .contentDemo{
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            span{
+                color: $blackColor;
+                text-decoration: underline;
+            }
+        }
+
+        .dataView{
+            position: relative;
+            width: 100%;
+            background-color: #ccc;
+            width: 100%;
+            animation-duration: 1s;
+            height: calc(100vh - 80px); 
+            padding:10px 20px;
+            z-index:2;
+            overflow-y: scroll;
+            .closeButton{
+                float: right;
+            }
+        }
+        .openView{
+            animation-name: fadeIn;
+        }
+        .closedView{
+            animation-name: fadeOut;
+        }
+
+        .addUser{
+            position: absolute;
+            width:100%;
+            height: calc(100vh - 80px); 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0,0,0,0.6);
+            z-index:100;
+            top:80px;
+            left:0;
+          
+            .modelBox{
+                width:400px;
+                height:500px;
+                padding: 10px 20px;
+                background-color: $whiteColor;
+                .heading{
+                    font-size: 30px;
+                    color: $primaryColor;
+                }
+                .form{
+                    display: flex;
+                    flex-direction: column;
+                    input{
+                        width:100%;
+                        font-size: 16px;
+                        padding: 5px 10px;
+                        margin: 10px 0px;
+                    }
+                    select{
+                        width:100%;
+                        font-size: 16px;
+                        padding: 5px 10px;
+                        margin: 10px 0px;
+                    }
+                    button{
+                        width:100%;
+                        font-size: 16px;
+                        padding: 5px 10px;
+                        margin: 10px 0px;
+                        background-color: $secondaryColor;
+                        color: $whiteColor;
+                        cursor: pointer;
+                        &:hover{
+                            background-color: $primaryColor;
+                            color: $whiteColor;
+                        }
+                    }
+                    .close{
+                        background-color: rgb(255, 0, 0);
+                        &:hover{
+                            background-color: rgba(255, 0, 0,0.6);
+                            color: $primaryColor;
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+table{
+    width: 100%;
+    th{
+        text-align: left;
+    }
+    span{
+        font-weight: 500;
+        cursor: pointer;
+        &:hover{
+            color: red;
+        }
+    }
+}
+
+
+@keyframes bottomTop {
+    from {bottom:-100%;opacity:0}
+    to {bottom: 20px;opacity:1}
+}
+
+@keyframes fadeOut {
+    from {right:0%;opacity:1}
+    to {right:-100%;opacity:0}
+  }
+
+@keyframes fadeIn {
+    from {right:-100%;opacity:0}
+    to {right:0;opacity:1}
+  }
+
+.forbiddenPage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    top: 200px;
+    position: relative;
+    h1{
+        display: block;
+    }
+    h2{
+        display: block;
+    }
+}
