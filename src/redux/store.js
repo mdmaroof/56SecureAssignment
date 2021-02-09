@@ -25,7 +25,6 @@ export default function configureStore(initialState = {}) {
         composeEnhancers(...enhancers),
     );
 
-    sagaMiddleware.run(rootSaga);
     return store;
 }
 // export default store;
