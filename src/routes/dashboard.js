@@ -39,7 +39,10 @@ class Dashboard extends Component {
             this.state.name === '' ||
             this.state.password === '' ||
             this.state.role === '') {
-            console.log('please fill all the files')
+            await this.props.sendToast('Please fill all the files');
+            setTimeout(() => {
+                this.props.sendToast(null);
+            }, 7000)
         }
         else {
             const payload = {
