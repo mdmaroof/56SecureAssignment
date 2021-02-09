@@ -141,7 +141,9 @@ class Dashboard extends Component {
                                     <select value={this.state.role} name='role' onChange={this.myChangeHandler}>
                                         <option value=''>Please Select User Role</option>
                                         <option value="user">User</option>
-                                        <option value="admin">Admin</option>
+                                        {this.props.userDetail.role === 'superadmin' &&
+                                            <option value="admin">Admin</option>
+                                        }
                                     </select>
                                     <button onClick={() => this.SubmitData()}>
                                         Add User
